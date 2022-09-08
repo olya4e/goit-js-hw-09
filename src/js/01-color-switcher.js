@@ -11,11 +11,13 @@ const onStartBtnClick = e => {
     bodyEl.style.backgroundColor = getRandomHexColor();
   }, 1000);
   startBtnEl.setAttribute('disabled', true);
+  stopBtnEl.removeAttribute('disabled');
 };
 
 const onStopBtnClick = e => {
   clearInterval(intervalId);
   startBtnEl.removeAttribute('disabled');
+  stopBtnEl.setAttribute('disabled', true);
 };
 
 startBtnEl.addEventListener('click', onStartBtnClick);
