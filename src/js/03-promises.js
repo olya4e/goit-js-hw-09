@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 Notiflix.Notify.init({
   width: '400px',
 });
-formEl = document.querySelector('.form');
+const formEl = document.querySelector('.form');
 
 const onSubmitForm = e => {
   e.preventDefault();
