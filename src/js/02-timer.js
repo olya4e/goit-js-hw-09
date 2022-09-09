@@ -1,6 +1,9 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
+Notiflix.Notify.init({
+  width: '400px',
+});
 const dataTimeInputEl = document.querySelector('#datetime-picker');
 const startBtnEl = document.querySelector('[data-start]');
 startBtnEl.setAttribute('disabled', true);
@@ -14,6 +17,7 @@ const options = {
     if (selectedDates[0] < Date.now()) {
       startBtnEl.style.backgroundColor = 'rgb(240, 107, 46)';
       Notiflix.Notify.failure('Please choose a date in the future');
+      startBtnEl.setAttribute('disabled', true);
     } else {
       startBtnEl.removeAttribute('disabled');
       startBtnEl.style.backgroundColor = 'rgba(46, 240, 59)';
@@ -69,7 +73,6 @@ const timer = {
   },
 };
 const onStartBtnClick = e => {
-  console.log('hello');
   timer.start();
 };
 const getUserDeadline = e => {

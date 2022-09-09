@@ -1,4 +1,7 @@
 import Notiflix from 'notiflix';
+Notiflix.Notify.init({
+  width: '400px',
+});
 formEl = document.querySelector('.form');
 
 const onSubmitForm = e => {
@@ -8,21 +11,17 @@ const onSubmitForm = e => {
   const stepUser = step.valueAsNumber;
   const amountUser = amount.valueAsNumber;
   if (delayUser < 0 || stepUser < 0 || amountUser <= 0) {
-    Notiflix.Notify.failure(`❌ Please input valid  number value`);
+    Notiflix.Notify.failure(` Please input valid value`);
     return;
   }
 
   for (let position = 1; position <= amountUser; position += 1) {
     createPromise(position, delayUser)
       .then(({ position, delay }) => {
-        Notiflix.Notify.success(
-          `✅ Fulfilled promise ${position} in ${delay}ms`
-        );
+        Notiflix.Notify.success(` Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        Notiflix.Notify.failure(
-          `❌ Rejected promise ${position} in ${delay}ms`
-        );
+        Notiflix.Notify.failure(` Rejected promise ${position} in ${delay}ms`);
       });
     delayUser += stepUser;
   }
