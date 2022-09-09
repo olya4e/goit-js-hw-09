@@ -12,11 +12,11 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < Date.now()) {
-      startBtnEl.style.backgroundColor = 'rgb(223, 42, 42)';
+      startBtnEl.style.backgroundColor = 'rgb(240, 107, 46)';
       Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       startBtnEl.removeAttribute('disabled');
-      startBtnEl.style.backgroundColor = 'rgb(60, 185, 10)';
+      startBtnEl.style.backgroundColor = 'rgba(46, 240, 59)';
     }
   },
 };
